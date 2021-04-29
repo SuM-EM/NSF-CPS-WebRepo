@@ -87,8 +87,6 @@
                         <a href="#" class="u-btn u-btn-submit u-button-style u-btn-1">Submit</a>
                         <input type="submit" value="submit" class="u-form-control-hidden"/>
                       </div>
-                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-                      <div class="u-form-send-error u-form-send-message">Bad Keyword.</div>
                       <input type="hidden" value="" name="recaptchaResponse">
                     </form>
                   </div>
@@ -144,6 +142,7 @@
             decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
 			
 		if (decryptedHMAC !== encryptedHMAC) {
+		    alert('Bad Keyword!');
             return;
         }
 
