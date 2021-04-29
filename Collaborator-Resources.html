@@ -26,7 +26,53 @@
     <meta name="theme-color" content="#478ac9">
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
-  </head>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeSfr8aAAAAANnZQBj1djew3bo4Du_IAA8hPT5j"></script>
+    <script>
+( function( grecaptcha, sitekey, actions ) {
+
+	var recaptcha = {
+
+		execute: function( action ) {
+			grecaptcha.execute(
+				sitekey,
+				{ action: action }
+			).then( function( token ) {
+				var forms = document.getElementsByTagName( 'form' );
+
+				for ( var i = 0; i < forms.length; i++ ) {
+					var fields = forms[ i ].getElementsByTagName( 'input' );
+
+					for ( var j = 0; j < fields.length; j++ ) {
+						var field = fields[ j ];
+
+						if ( 'recaptchaResponse' === field.getAttribute( 'name' ) ) {
+							field.setAttribute( 'value', token );
+							break;
+						}
+					}
+				}
+			} );
+		},
+
+		executeContact: function() {
+			recaptcha.execute( actions[ 'contact' ] );
+		}
+	};
+
+	grecaptcha.ready(
+		recaptcha.executeContact
+	);
+
+	document.addEventListener( 'change',
+		recaptcha.executeContact, false
+	);
+} )(
+	grecaptcha,
+	'6LeSfr8aAAAAANnZQBj1djew3bo4Du_IAA8hPT5j',
+	{"contact":"contact"}
+);
+    </script>
+</head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-237f"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -81,11 +127,11 @@
                     <form id="staticrypt-form" action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="custom">
                       <div class="u-form-group u-form-name">
                         <label for="name-558c" class="u-form-control-hidden u-label"></label>
-                        <input type="password" placeholder="Enter Your Key" id="staticrypt-password" name="Password" class="u-border-4 u-border-grey-30 u-input u-input-rectangle u-radius-17" autofocus/>
+                        <input type="password" placeholder="Enter Your Key" id="staticrypt-password" name="Password"  class="u-border-4 u-border-grey-30 u-input u-input-rectangle u-radius-17" required="" autofocus/>
                       </div>
                       <div class="u-form-group u-form-submit">
                         <a href="#" class="u-btn u-btn-submit u-button-style u-btn-1">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden"/>
+                        <input type="submit" value="submit" class="u-form-control-hidden" />
                       </div>
                       <input type="hidden" value="" name="recaptchaResponse">
                     </form>
@@ -103,11 +149,10 @@
     <footer class="u-align-left u-clearfix u-footer u-grey-80 u-footer" id="sec-e6b5"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-text u-text-1">© 2021 Smart Grid Demonstration Research Investigation Lab - All Rights Reserved</p>
       </div></footer>
-	  
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" integrity="sha384-lp4k1VRKPU9eBnPePjnJ9M2RF3i7PC30gXs70+elCVfgwLwx1tv5+ctxdtwxqZa7" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" integrity="sha384-lp4k1VRKPU9eBnPePjnJ9M2RF3i7PC30gXs70+elCVfgwLwx1tv5+ctxdtwxqZa7" crossorigin="anonymous"></script>
 
 <script>
-
     /**
      * Decrypt a salted msg using a password.
      * Inspired by https://github.com/adonespitogo
@@ -152,5 +197,6 @@
         document.close();
     });
 </script>
+
   </body>
 </html>
