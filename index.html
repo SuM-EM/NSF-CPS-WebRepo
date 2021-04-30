@@ -26,7 +26,53 @@
     <meta name="theme-color" content="#478ac9">
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
-  </head>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeSfr8aAAAAANnZQBj1djew3bo4Du_IAA8hPT5j"></script>
+    <script>
+( function( grecaptcha, sitekey, actions ) {
+
+	var recaptcha = {
+
+		execute: function( action ) {
+			grecaptcha.execute(
+				sitekey,
+				{ action: action }
+			).then( function( token ) {
+				var forms = document.getElementsByTagName( 'form' );
+
+				for ( var i = 0; i < forms.length; i++ ) {
+					var fields = forms[ i ].getElementsByTagName( 'input' );
+
+					for ( var j = 0; j < fields.length; j++ ) {
+						var field = fields[ j ];
+
+						if ( 'recaptchaResponse' === field.getAttribute( 'name' ) ) {
+							field.setAttribute( 'value', token );
+							break;
+						}
+					}
+				}
+			} );
+		},
+
+		executeContact: function() {
+			recaptcha.execute( actions[ 'contact' ] );
+		}
+	};
+
+	grecaptcha.ready(
+		recaptcha.executeContact
+	);
+
+	document.addEventListener( 'change',
+		recaptcha.executeContact, false
+	);
+} )(
+	grecaptcha,
+	'6LeSfr8aAAAAANnZQBj1djew3bo4Du_IAA8hPT5j',
+	{"contact":"contact"}
+);
+    </script>
+</head>
   <body data-home-page="Home.html" data-home-page-title="Home" class="u-body"><header class="u-clearfix u-header u-header" id="sec-237f"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -40,7 +86,7 @@
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Collaborator-Resources.html" style="padding: 10px 20px;">Collaborator Resources</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Resources.html" style="padding: 10px 20px;">Resources</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="People.html" style="padding: 10px 20px;">People</a>
 </li></ul>
           </div>
@@ -50,7 +96,7 @@
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Collaborator-Resources.html" style="padding: 10px 20px;">Collaborator Resources</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Resources.html" style="padding: 10px 20px;">Resources</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="People.html" style="padding: 10px 20px;">People</a>
 </li></ul>
               </div>
@@ -58,33 +104,33 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <h4 class="u-text u-text-1">CPS:DFG Joint</h4>
+        <h4 class="u-text u-text-1">aDaptioN</h4>
       </div></header>
     <section class="u-clearfix u-section-1" id="carousel_2099">
-      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
-        <div class="u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
-        <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-col">
               <div class="u-size-30">
                 <div class="u-layout-row">
                   <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
-                    <div class="u-container-layout u-valign-top u-container-layout-1">
-                      <h5 class="u-text u-text-1">our Goals</h5>
-                      <h4 class="u-align-left u-text u-text-2">To develop and validate holonic control and optimization
+                    <div class="u-container-layout u-container-layout-1">
+                      <h2 class="u-text u-text-1">Data-Driven Secure Holonic Control and Optimization for the networked CPS (aDaptioN)</h2>
+                      <h3 class="u-text u-text-2">Our Goals</h3>
+                      <h4 class="u-align-left u-text u-text-3">To develop and validate holonic control and optimization
 algorithms for the critical cyber-physical networked infrastructures considering flexibility, scalibility, tolerant to cyber events, data management, and computing for the electric distribution grid</h4>
+                      <a href="About.html" data-page-id="294809727" class="u-align-center u-btn u-button-style u-custom-font u-font-arial u-hover-palette-3-dark-3 u-palette-3-base u-btn-1">read more</a>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-valign-top u-container-layout-2">
-                      <h4 class="u-text u-text-body-color u-text-3">Data-Driven Secure Holonic Control and Optimization for the networked CPS (aDaptioN)</h4>
-                      <h5 class="u-text u-text-4">Collaborators</h5>
+                    <div class="u-container-layout u-container-layout-2">
+                      <h3 class="u-text u-text-4">Collaborators</h3>
                       <p class="u-text u-text-body-color u-text-5">
-                        <a href="https://sgdril.eecs.wsu.edu/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" target="_blank">Washington State University</a>
+                        <a href="https://sgdril.eecs.wsu.edu/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" target="_blank">Washington State University</a>
                         <br>
-                        <a href="http://aaclab.mit.edu" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" target="_blank">Masachusets Institute of Technology</a>
+                        <a href="http://aaclab.mit.edu" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" target="_blank">Masachusets Institute of Technology</a>
                         <br>
-                        <a href="https://www.eonerc.rwth-aachen.de/go/id/dmud/?lidx=1" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" target="_blank">RWTH Aachen</a>
+                        <a href="https://www.eonerc.rwth-aachen.de/go/id/dmud/?lidx=1" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" target="_blank">RWTH Aachen</a>
                       </p>
                     </div>
                   </div>
@@ -92,15 +138,17 @@ algorithms for the critical cyber-physical networked infrastructures considering
               </div>
               <div class="u-size-30">
                 <div class="u-layout-row">
-                  <div class="u-container-style u-image u-image-contain u-layout-cell u-left-cell u-right-cell u-size-60 u-image-1" data-image-width="916" data-image-height="715">
-                    <div class="u-container-layout u-container-layout-3"></div>
+                  <div class="u-container-style u-layout-cell u-left-cell u-right-cell u-size-60 u-layout-cell-3">
+                    <div class="u-container-layout u-container-layout-3">
+                      <div class="u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
+                      <img class="u-image u-image-contain u-image-1" src="images/Fig1.PNG" data-image-width="916" data-image-height="715">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <a href="About.html" data-page-id="294809727" class="u-align-center u-btn u-button-style u-custom-font u-font-arial u-hover-palette-3-dark-3 u-palette-3-base u-btn-4">read more</a>
       </div>
     </section>
     
