@@ -104,7 +104,7 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <h4 class="u-text u-text-1">CPS:DFG Joint</h4>
+        <h4 class="u-text u-text-1">aDaptioN</h4>
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-4304">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -121,18 +121,20 @@
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <h2 class="u-align-center u-text u-text-3">Protected Resources</h2>
-                  <h5 class="u-align-center u-text u-text-4">If you are one of our collaborators, please contact&nbsp;<br>Dr. A. K. Srivastava for viewing access
+                  <h5 class="u-align-center u-text u-text-4">If you are one of our collaborators, please contact&nbsp;<br>Dr. A. K. Srivastava for access
                   </h5>
                   <div class="u-form u-form-1">
-                    <form id="staticrypt-form" action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="custom">
+                    <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="custom">
                       <div class="u-form-group u-form-name">
                         <label for="name-558c" class="u-form-control-hidden u-label"></label>
-                        <input type="password" placeholder="Enter Your Key" id="staticrypt-password" name="Password"  class="u-border-4 u-border-grey-30 u-input u-input-rectangle u-radius-17" required="" autofocus/>
+                        <input type="text" placeholder="Enter Your Key" id="name-558c" name="Password" class="u-border-4 u-border-grey-30 u-input u-input-rectangle u-radius-17" required="" autofocus="autofocus">
                       </div>
                       <div class="u-form-group u-form-submit">
                         <a href="#" class="u-btn u-btn-submit u-button-style u-btn-1">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden" />
+                        <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
+                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+                      <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
                       <input type="hidden" value="" name="recaptchaResponse">
                     </form>
                   </div>
@@ -149,54 +151,16 @@
     <footer class="u-align-left u-clearfix u-footer u-grey-80 u-footer" id="sec-e6b5"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-text u-text-1">© 2021 Smart Grid Demonstration Research Investigation Lab - All Rights Reserved</p>
       </div></footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" integrity="sha384-lp4k1VRKPU9eBnPePjnJ9M2RF3i7PC30gXs70+elCVfgwLwx1tv5+ctxdtwxqZa7" crossorigin="anonymous"></script>
-
-<script>
-    /**
-     * Decrypt a salted msg using a password.
-     * Inspired by https://github.com/adonespitogo
-     */
-    var keySize = 256;
-    var iterations = 1000;
-    function decrypt (encryptedMsg, pass) {
-        var salt = CryptoJS.enc.Hex.parse(encryptedMsg.substr(0, 32));
-        var iv = CryptoJS.enc.Hex.parse(encryptedMsg.substr(32, 32))
-        var encrypted = encryptedMsg.substring(64);
-
-        var key = CryptoJS.PBKDF2(pass, salt, {
-            keySize: keySize/32,
-            iterations: iterations
-        });
-
-        var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
-            iv: iv,
-            padding: CryptoJS.pad.Pkcs7,
-            mode: CryptoJS.mode.CBC
-        }).toString(CryptoJS.enc.Utf8);
-        return decrypted;
-    }
-
-    document.getElementById('staticrypt-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        var passphrase = document.getElementById('staticrypt-password').value,
-            encryptedMsg = '4cb059932acb61c1a6c0dae1c36f9a74ed4e73b64e2d437cbd10dd2f4a0cde7e43e15b9955f41be994ad3e34d3278953974c40be557e183243d674086405a594Lj88AS1G4ekh0gO8wAsFD8WbND7TNPHPneP0SCUzp/Y/HAHE2cjdVr/y/6lcNH7BhS05bsrKcEqKCi6q51YCCCrs24d1xekpbJF6iASS6UpHUyiKBxXca3HrNUqGCFbnXhIrcmub+zQ/+ktmLMt3eygdjCU4EBYBkP5pzoRAc/u2E+6rwEo4TuaHUf7Xs4H+dMDKChAO5MpoKUWy9o/uTQ==',
-            encryptedHMAC = encryptedMsg.substring(0, 64),
-            encryptedHTML = encryptedMsg.substring(64),
-            decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
-			
-		if (decryptedHMAC !== encryptedHMAC) {
-		    alert('Bad Keyword!');
-            return;
-        }
-
-        var plainHTML = decrypt(encryptedHTML, passphrase);
-
-        document.write(plainHTML);
-        document.close();
-    });
-</script>
-
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/html-templates" target="_blank">
+        <span>HTML Template</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
+        <span>Best Website Builder</span>
+      </a>. 
+    </section>
   </body>
 </html>

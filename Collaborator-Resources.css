@@ -121,14 +121,38 @@
     padding-right: 10px;
   }
 
+  .u-section-1 .u-layout-cell-2 {
+    min-height: 468px;
+  }
+
   .u-section-1 .u-container-layout-2 {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .u-section-1 .u-form-1 {
+    height: 146px;
+    margin-top: 56px;
+    margin-right: 107px;
+    margin-left: 113px;
+  }
+
+  .u-section-1 .u-text-5 {
+    margin-top: 7px;
   }
 }
 
 @media (max-width: 575px) {
   .u-section-1 .u-sheet-1 {
     min-height: 439px;
+  }
+
+  .u-section-1 .u-layout-cell-2 {
+    min-height: 100px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-right: 7px;
+    margin-left: 13px;
   }
 }
